@@ -1,0 +1,127 @@
+// .Global config/style.
+@import './baseVar.scss';
+
+$headerMenu_visibleButton_width: 2.1em;
+$headerMenu_visibleButton_height: 1.9em;
+$headerMenu_visibleButton_color: $clorGreyBright;
+$headerMenu_theThickLine_widthMinus: 0.5em;
+$headerMenu_theThickLine_height: 2px;
+$headerMenu_theThickLine_splitLength: 0.4em;
+$headerMenu_theThickLine_color: $clorGreyDark;
+
+// .In same depth (rough).
+// -----------------------
+.headerMenuCtnr {
+  display: flex;
+  justify-content: space-between;
+}
+.headerMenuCtnr input {
+  display: none;
+}
+.headerMenuCtnr .visibleButton {
+  display: none;
+  // .Will be toggled while in mobile screen.
+  position: relative;
+  width: $headerMenu_visibleButton_width;
+  height: $headerMenu_visibleButton_height;
+  border-radius: calc(0.0625em * 5);
+  border: 1px solid $headerMenu_visibleButton_color;
+  background-color: white;
+}
+.visibleButton .theThickLine,
+.visibleButton .theThickLine:before,
+.visibleButton .theThickLine:after {
+  position: absolute;
+  border-radius: calc(#{$headerMenu_theThickLine_height} / 2);
+  // .I can't use "50%" because it will work differently for horizontal side and vertical side.
+  background-color: $headerMenu_theThickLine_color;
+}
+
+.visibleButton .theThickLine {
+  top: calc((#{$headerMenu_visibleButton_height} - #{$headerMenu_theThickLine_height}) / 2);
+  left: $headerMenu_theThickLine_widthMinus;
+  right: $headerMenu_theThickLine_widthMinus;
+  bottom: calc((#{$headerMenu_visibleButton_height} - #{$headerMenu_theThickLine_height}) / 2);
+}
+.visibleButton .theThickLine:before,
+.visibleButton .theThickLine:after {
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.visibleButton .theThickLine:before {
+  transform: translateY(calc(0em - #{$headerMenu_theThickLine_splitLength}));
+}
+.visibleButton .theThickLine:after {
+  transform: translateY($headerMenu_theThickLine_splitLength);
+}
+
+//@media screen and (max-width: $screenMdWidth) {
+@media screen and (max-width: $screenMdWidth) {
+  header nav {
+    background-color: unset;
+    // .Overwrite.
+    padding-top: 0;
+    // .Overwrite.
+    padding-bottom: 0;
+    // .Overwrite.
+  }
+  .headerMenuCtnr .visibleButton {
+    display: block;
+    position: fixed;
+    top: 0.4em;
+    right: 0.4em;
+  }
+  .headerMenuCtnr ul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4b4b4b;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    align-content: center;
+    grid-row-gap: $spaceS4;
+    transform: translateX(-105vw);
+    // .Why 105 instead of 100? Because the box-shadow still revealed.
+    transition: transform 0.5s;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.24);
+  }
+  .headerMenuCtnr ul li {
+    margin-left: 0;
+    // .Overwrite.
+    text-align: center;
+    transform: translateX(calc(5em / 2));
+    // .Should sync with comment id 190701m174027.
+  }
+
+  .headerMenuCtnr li.active:before {
+    left: calc(50% - (1.7em / 2));
+  }
+  .headerMenuCtnr #headerMenuInput:checked ~ ul{
+    transform: translateX(-5em);
+    // .Should sync with comment id 190701m174027.
+  }
+
+  .headerMenuCtnr .theThickLine,
+  .headerMenuCtnr .theThickLine:before,
+  .headerMenuCtnr .theThickLine:after {
+    transition: all 0.6s;
+  }
+  #headerMenuInput:checked ~ label .theThickLine {
+    background-color: unset;
+  }
+  #headerMenuInput:checked ~ label .theThickLine:before,
+  #headerMenuInput:checked ~ label .theThickLine:after {
+    transform: translateY(0);
+  }
+  #headerMenuInput:checked ~ label .theThickLine:before {
+    transform: rotate(-45deg);
+  }
+  #headerMenuInput:checked ~ label .theThickLine:after {
+    transform: rotate(45deg);
+  }
+}

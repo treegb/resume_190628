@@ -1,0 +1,70 @@
+$screenSmWidth: 576px;
+$screenMdWidth: 768px;
+$screenLgWidth: 992px;
+$screenXlWidth: 1200px;
+
+$globalFontColor: #4b4b4b;
+
+// .Color.
+// .Usage example: hsl(0deg, 0%, $clorGreyBrightLgtn + 9%).
+// ----------------------------------------------------------
+
+$clorGreyBright: #D4D4D4;
+// .Abbrv: Color grey light.
+$clorGreyBrightHue: 0deg;
+$clorGreyBrightSatr: 0%;
+$clorGreyBrightLgtn: 83%;
+
+$clorGreyDark: #4b4b4b;
+$clorGreyDarkHue: 0deg;
+$clorGreyDarkSatr: 0%;
+$clorGreyDarkLgtn: 29%;
+
+$clorPrimary: #1e655b;
+$clorPrimaryHue: 172deg;
+$clorPrimarySatr: 54%;
+$clorPrimaryLgtn: 26%;
+
+// .Testing different themes.
+//$clorPrimary: #3e1756;
+//$clorPrimaryHue: hue($clorPrimary);
+//$clorPrimarySatr: saturation($clorPrimary);
+//$clorPrimaryLgtn: lightness($clorPrimary);
+
+//$clorSecondary: blue;
+
+
+// .Length.
+// -------
+$spaceS1: 0.25em;
+// .Abrev: "s" stands for "scaling", related to magnitude.
+// .Tips: use something like calc(#{$spaceS1} * 3) to get non-harmony length.
+// .Calc: 0.25 * 1.6^0.
+$spaceS2: 0.4em;
+// .Calc: 0.25 * 1.6^1.
+$spaceS3: 0.64em;
+// .Calc: 0.25 * 1.6^2.
+$spaceS4: 1.02em;
+// .Calc: 0.25 * 1.6^3.
+$spaceS5: 1.63em;
+// .Calc: 0.25 * 1.6^4.
+$spaceS6: 2.62em;
+// .Calc: 0.25 * 1.6^5.
+$spaceS7: 4.19em;
+// .Calc: 0.25 * 1.6^6.
+$spaceS8: 6.71em;
+// .Calc: 0.25 * 1.6^7.
+
+// .Length, { rem }.
+// -------
+$spaceS1rem: 0.25rem;
+$spaceS2rem: 0.4rem;
+$spaceS3rem: 0.64rem;
+$spaceS4rem: 1.02rem;
+$spaceS5rem: 1.63rem;
+$spaceS6rem: 2.62rem;
+$spaceS7rem: 4.19rem;
+
+// .Path.
+// ------
+$assetsDir: "@/assets";

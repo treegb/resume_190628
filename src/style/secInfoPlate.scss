@@ -1,0 +1,351 @@
+// .Portfolio page ,, { section }-{ info plate }.
+
+.secInfoPlate {
+  --infoPlateWidth: 55%;
+  --infoPlateMaxWidth: 45em;
+  --infoPlateRotate: -3.5deg;
+  //--infoPlateRotate: 0deg;
+  --infoPlateAspectRatio: calc(7/4);
+  --infoPlateBorderRadius: #{$spaceS5};
+  --infoPlateBgEchoDevi: 4.6%;
+  --infoPlateBgEchoDeviStart: 2.4;
+  --infoPlateBgEchoBorderWidth: 1px;
+  --infoPlateBgEchoColor: hsla(0deg, 0%, 64%, 0.6);
+  --infoPlateBgEchoBorderOpacity: 0.7;
+  --ptfoContent_pivotX: 50%;
+  --ptfoContentBg_pivotX: 45%;
+  --ptfoContentBg_rotate: 12deg;
+  --navBtnCtnr_pivotX: 8%;
+  // Relative to { .infoPlate } right side.
+  --navBtnCtnr_pivotY: 2%;
+  // Relative to { .infoPlate } bottom side.
+}
+.secInfoPlate {
+  display: flex;
+  justify-content: center;
+  align-item: flex-start;
+  margin-top: calc(var(--sectionMarginTopBtm) * 0.5);
+  margin-bottom: calc(var(--sectionMarginTopBtm) + 0em;);
+}
+
+// .Roughly in same deepth.
+// ---------------------
+.infoPlateCtnr_width {
+  transform: rotate(var(--infoPlateRotate));
+  width: var(--infoPlateWidth);
+  max-width: var(--infoPlateMaxWidth);
+      //border: 2px solid teal;
+}
+.infoPlateCtnr_padding {
+  position: relative;
+  width: 100%;
+  padding-top: calc(100% / var(--infoPlateAspectRatio));
+      //border: 2px solid yellow;
+}
+.infoPlateCtnr_absolute {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+      //border: 2px solid teal;
+}
+.infoPlate {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--infoPlateBorderRadius);
+  overflow: hidden;
+  border: 2px solid hsl($clorPrimaryHue, 30%, 60%);
+	box-shadow: 0 0 1.2em hsla($clorPrimaryHue, 90%, 25%, 0.4);
+  z-index: 2;
+      //border: 4px solid brown;
+}
+
+// .Roughly in same deepth.
+// ---------------------
+.infoPlate > * {
+  position: absolute;
+}
+.ptfoContent {
+  top: $spaceS3;
+  left: var(--ptfoContent_pivotX);
+  right: $spaceS3;
+  bottom: $spaceS3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr max-content;
+  align-items: stretch;
+  // Problem of overflow not working:.Notice, I found that, when you're not using
+  // { align-items: stretch; } (start, end, center, whatever),
+  // if you have a div inside and it is set to { overflow-y: scroll },
+  // it will not work! In this case, you have to set grid parent to
+  // { align-items: stretch; }, so the child div's { overflow-y } will not break.
+  grid-template-areas:
+    "scrollText scrollText"
+    "btnMore btnBrowse";
+  z-index: 2;
+      //border: 3px solid orange;
+      //background-color: #1e655b;
+}
+.ptfoContent .scrollText_overflow {
+  grid-area: scrollText;
+  overflow-y: auto;
+  // .This is one of the key.
+      //border: 3px solid red;
+}
+.ptfoContent .scrollText_flex {
+  display: flex;
+  //flex-wrap: nowrap;
+  // .This is one of the key.
+  align-content: stretch;
+  justify-content: center;
+  align-items: center;
+  // .Not sure if I have to add this, but this don't change the result.
+  height: 100%;
+  // .This is one of the key.
+      //border: 3px solid purple;
+}
+.ptfoContent .scrollText_main {
+  margin: auto;
+  // .This is very important key to solve this problem. Without this, padding-bottom of
+  // { .scrollText_main } will not work.
+  padding: $spaceS4;
+  box-sizing: border-box;
+      //border: 3px solid blue;
+}
+.ptfoContent .btnMore,
+.ptfoContent .btnBrowse {
+  font-size: 0.85rem;
+  align-self: center;
+  justify-self: center;
+  margin: $spaceS4;
+}
+.ptfoContent .btnMore {
+  grid-area: btnMore;
+  justify-self: right;
+}
+.ptfoContent .btnBrowse {
+  grid-area: btnBrowse;
+  justify-self: left;
+}
+.ptfoContent .scrollText_main .title,
+.ptfoContent .scrollText_main .content {
+      //border: 1px solid red;
+}
+.ptfoContent .scrollText_main .title {
+  text-align: right;
+  //color: $clorGreyBright;
+  color: white;
+}
+.ptfoContent .scrollText_main h3.title {
+  font-size: 1em;
+  // ."Unset" font-size of h3;
+}
+.ptfoContent .scrollText_main .title i {
+  font-size: 1.4em;
+  font-weight: 300;
+}
+.ptfoContent .scrollText_main .content {
+  //color: $clorGreyBright;
+  color: white;
+}
+.ptfoContentBg {
+  top: 50%;
+  left: var(--ptfoContentBg_pivotX);
+  width: 1em;
+  height: 1em;
+  transform-origin: 0% 50%;
+  transform: scale(50) rotate(var(--ptfoContentBg_rotate));
+  background-color: $clorPrimary;
+  z-index: 1;
+  box-shadow: 0 0 3px hsla($clorPrimaryHue, 90%, 25%, 0.4);
+}
+.myProjectImageFirst {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: calc(100% - var(--ptfoContentBg_pivotX) - 4em);
+  // .Because { --ptfoContentBg_pivotX } is  "count" from left side, so we have to use
+  // { 100% - var(--ptfoContentBg_pivotX) } to make it "count" from right side.
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 60% 50%;
+      //border: 3px solid red;
+      transition: transform 0.5s;
+}
+.myProjectImageFirst:hover {
+  transform: scale(1.3) rotate(calc(var(--infoPlateRotate) * 0.65 * -1));
+}
+
+// .Roughly in same deepth.
+// ---------------------
+.infoPlateBgEcho {
+  position: absolute;
+  top: calc(var(--infoPlateBgEchoDevi) * -1);
+  bottom: calc(var(--infoPlateBgEchoDevi) * -1);
+  left: calc(var(--infoPlateBgEchoDevi) * -1);
+  right: calc(var(--infoPlateBgEchoDevi) * -1);
+  border: var(--infoPlateBgEchoBorderWidth) solid var(--infoPlateBgEchoColor);
+  opacity: var(--infoPlateBgEchoBorderOpacity);
+  z-index: 1;
+}
+.infoPlateBgEcho.one {
+  top: calc(var(--infoPlateBgEchoDevi) * -1 * var(--infoPlateBgEchoDeviStart));
+  bottom: calc(var(--infoPlateBgEchoDevi) * -1 * var(--infoPlateBgEchoDeviStart));
+  left: calc(var(--infoPlateBgEchoDevi) * -1 * var(--infoPlateBgEchoDeviStart));
+  right: calc(var(--infoPlateBgEchoDevi) * -1 * var(--infoPlateBgEchoDeviStart));
+}
+
+.infoPlateBgEcho.one {
+  --infoPlateBorderRadius_multiplier: 1.05;
+  --infoPlateBorderRadiusOne: calc(var(--infoPlateBorderRadius) * var(--infoPlateBorderRadius_multiplier));
+  --infoPlateBorderRadiusTwo: calc(var(--infoPlateBorderRadiusOne) * var(--infoPlateBorderRadius_multiplier));
+  --infoPlateBorderRadiusThree: calc(var(--infoPlateBorderRadiusTwo) * var(--infoPlateBorderRadius_multiplier));
+  --infoPlateBorderRadiusFour: calc(var(--infoPlateBorderRadiusThree) * var(--infoPlateBorderRadius_multiplier));
+  border-radius: var(--infoPlateBorderRadiusOne);
+}
+.infoPlateBgEcho.two {
+  border-radius: var(--infoPlateBorderRadiusTwo);
+}
+.infoPlateBgEcho.three {
+  border-radius: var(--infoPlateBorderRadiusThree);
+}
+.infoPlateBgEcho.four {
+  border-radius: var(--infoPlateBorderRadiusFour);
+}
+
+// .Roughly in same deepth.
+// ---------------------
+.navBtnCtnr {
+  position: absolute;
+  right: var(--navBtnCtnr_pivotX);
+  top: calc(100% + var(--navBtnCtnr_pivotY) + #{$spaceS4});
+  //height: 3em;
+  display: inline-flex;
+  z-index: 4;
+      //border: 3px solid green;
+}
+.navBtnCtnr .btn {
+  width: 3.8em;
+  height: 1.9em;
+  margin-left: $spaceS2;
+  margin-right: $spaceS2;
+  position: relative;
+	border: 1px solid $clorGreyBright;
+	border-radius: 0.5em;
+	background-color: hsl($clorPrimaryHue, $clorPrimarySatr + 0%, $clorPrimaryLgtn + 10%);
+	box-shadow: 0 0 5px hsla($clorPrimaryHue, 90%, 25%, 0.4);
+	transition: all 0.12s;
+}
+/deep/ .navBtnCtnr .arrowThick {
+  --pathWithMainColor: white;
+  top: 50%;
+  left: 51%;
+  width: 0.9em;
+}
+/deep/ .navBtnCtnr .btnNext .arrowThick svg {
+  transform: rotateY(180deg);
+}
+.navBtnCtnr .btn:hover {
+	border: 1px solid $clorGreyBright;
+	border-radius: 0.5em;
+	background-color: white;
+	box-shadow: 0 0 4px hsla($clorPrimaryHue, 90%, 25%, 0.6);
+	border-color: hsl($clorPrimaryHue, $clorPrimarySatr + 0%, $clorPrimaryLgtn + 10%);
+}
+/deep/ .navBtnCtnr .btn:hover .arrowThick {
+  --pathWithMainColor: #{hsl($clorPrimaryHue, $clorPrimarySatr + 0%, $clorPrimaryLgtn + 10%)};
+}
+
+// .Starting media query.
+// ------------------------
+@media screen and (max-width: $screenMdWidth) {
+  .secInfoPlate {
+    --infoPlateWidth: 87%;
+    --infoPlateRotate: 0deg;
+    --infoPlateBgEchoDeviStart: 1.2;
+    --infoPlateBgEchoDevi: 4.1%;
+    --ptfoContentBg_rotate: 7deg;
+    --ptfoContent_pivotX: 48%;
+  }
+}
+@media screen and (max-width: $screenSmWidth) {
+  .secInfoPlate {
+    --infoPlateWidth: 95%;
+  }
+}
+@media screen and (max-width: 460px) {
+
+  // .Reset: Reset all elements, until
+  // { .secInfoPlate } becomes { position: relative },
+  // { .ptfoContent } becomes { position: absolute },
+  // { .myProjectImageFirst } becomes { position: absolute },
+  // { .navBtnCtnr } becomes { position: absolute }.
+  // ===========================================================
+  .secInfoPlate {
+    --ptfoContent_pivotX: 0%;
+    --infoPlateBgEchoBorderOpacity: 0;
+    --mobileAbsoluteSecHeight: 40em;
+    --mobileAbsoluteImgStart: 3%;
+    --mobileAbsoluteImgEnd: 53%;
+    --mobileAbsoluteContentStart: 56%;
+    --mobileAbsoluteContentEnd: 95%;
+    --mobileAbsoluteBorderRadius: 0.8em;
+    position: relative;
+    padding: 0;
+    height: var(--mobileAbsoluteSecHeight);
+  }
+  .infoPlateCtnr_width,
+  .infoPlateCtnr_padding,
+  .infoPlateCtnr_absolute,
+  .infoPlate {
+    position: static;
+  }
+  .infoPlateCtnr_width {
+    transform: unset;
+    // .This is important, without this, the { position: absolute } child
+    // can't found the correct { position: relative } parent.
+  }
+  .infoPlateCtnr_padding {
+    padding-top: unset;
+  }
+  .infoPlate {
+    border: unset;
+  }
+  .ptfoContentBg {
+    //background-color: unset;
+    //box-shadow: unset;
+    display: none;
+  }
+  .infoPlateBgEcho {
+    display: none;
+  }
+  // ===========================================================
+
+  .ptfoContent,
+  .myProjectImageFirst,
+  .navBtnCtnr {
+    position: absolute;
+  }
+  .myProjectImageFirst,
+  .ptfoContent {
+    left: var(--mainElmPaddingLftRgt);
+    right: var(--mainElmPaddingLftRgt);
+    border-radius: var(--mobileAbsoluteBorderRadius);
+  }
+  .myProjectImageFirst {
+    top: var(--mobileAbsoluteImgStart);
+    bottom: calc(100% - var(--mobileAbsoluteImgEnd));
+    border: 1px solid hsl(0deg, 0%, $clorGreyBrightLgtn);
+  }
+  .ptfoContent {
+    top: var(--mobileAbsoluteContentStart);
+    bottom: calc(100% - var(--mobileAbsoluteContentEnd));
+    background-color: $clorPrimary;
+  }
+  .navBtnCtnr {
+    top: 100%;
+    transform: translateY(-50%);
+  }
+}
