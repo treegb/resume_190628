@@ -13,6 +13,11 @@ let githubRepoName = "resume_190628";
 // we have no choices.
 let routes = [
   {
+    path: `/index.html`,
+    component: resume,
+    // .Related to { vue-router-workaround }.
+  },
+  {
     path: `/(${githubRepoName}|)`,
     component: resume,
     name: "siteRoot",
