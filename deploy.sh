@@ -6,6 +6,11 @@ set -e
 npm run build
 # .Build
 
+cp ./vue-router-workaround/* ./dist/
+# .Only for those vue project that use { vue-router } AND will deploy to github.
+# This is ugly workaround, but since GitHub Pages does not support customer server configuration files such as .htaccess or .conf,
+# we have no choices.
+
 cd dist
 # .Navigate into the build output directory
 
