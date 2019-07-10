@@ -8,7 +8,6 @@ module.exports = {
  devServer: {
    //host: '127.0.0.1',
    //port: 8023,
-   // .This have to sync with comment id 190609m185630.
  },
   css: {
     loaderOptions: {
@@ -22,4 +21,7 @@ module.exports = {
     .set('@', resolve('src'))
     .set('@myThinggg',resolve('src/assets/any/custom/path/you/want'));
   },
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/resume_190628/'
+    : '/',
 };
