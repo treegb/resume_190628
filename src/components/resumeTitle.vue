@@ -7,7 +7,13 @@
       <div class="clippingCtnr">
         <div class="dwLink">
           <div class="transform">
-            <a href="http://www.example.com" class="defaultText">下載 PDF 版本</a>
+            <a :href="`${publicPath}resume_pdf.pdf`" class="defaultText">下載 PDF 版本</a>
+            <!--
+            .See "How to create a button that can download a (.pdf or .word) file with vue (webpack template)":
+            https://forum.vuejs.org/t/how-to-create-a-button-that-can-download-a-pdf-or-word-file-with-vue-webpack-template/43538
+            And "HTML and Static Assets:
+            https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling
+          -->
           </div>
         </div>
         <downloadPdf></downloadPdf>
@@ -30,6 +36,7 @@ export default {
   },
   data () {
     return {
+      publicPath: process.env.BASE_URL,
     };
   },
   mounted () {

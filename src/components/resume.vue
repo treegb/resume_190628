@@ -59,7 +59,7 @@
               <svgHtml></svgHtml>
             </template>
             <template v-slot:contentTitle>
-              HTML/CSS。
+              HTML/CSS
             </template>
             <template v-slot:contentText>
               RWD 響應式網頁設計。
@@ -73,7 +73,7 @@
               Javascript
             </template>
             <template v-slot:contentText>
-              非同步 Async 的設計，JQuery, 操作 DOM， 模組 (ES module)。了解一些良好代碼常使用的慣例像是 "SOLID" 的 "單一職責原則"，"開閉原則"。
+              非同步 Async 的設計，JQuery, 操作 DOM， 模組 (ES module)。了解一些良好代碼常使用的慣例像是 "SOLID" 的 "單一職責原則"。
             </template>
           </resumeSectionSubContent>
           <resumeSectionSubContent>
@@ -84,7 +84,7 @@
               Vue.js
             </template>
             <template v-slot:contentText>
-              會使用基本的 Vue router, Slot。理解 REST API 的基本規範，並能用 Fetch API 對 JSON API 做出基本 CRUD 應用。閱讀過實際上線的 Vue project 的代碼 (但只有非常少量參與協作)。
+              會使用基本的 Vue Router, Slot。理解 REST API 的基本規範，並能用 Fetch API 對 JSON API 做出基本 CRUD 應用。閱讀過實際上線的 Vue project 的代碼 (但只有非常少量參與協作)。
             </template>
           </resumeSectionSubContent>
           <resumeSectionSubContent>
@@ -106,7 +106,7 @@
               Bootstrap
             </template>
             <template v-slot:contentText>
-              了解基本的 Bootstrap Grid layout。使用 Bootstrap 元件快速完成樣式和功能，像是 Form (input)，modal，navbar。配合 Font Awesome 使用 icon font。
+              了解基本的 Bootstrap Grid layout。使用 Bootstrap 元件快速完成樣式和功能，像是 form (input)，modal，navbar。配合 Font Awesome 使用 icon font。
             </template>
           </resumeSectionSubContent>
           <resumeSectionSubContent>
@@ -117,7 +117,7 @@
               Git
             </template>
             <template v-slot:contentText>
-              能透過 Pull Request 的方式與對方進行基本的協作.
+              能透過 Pull Request 的方式與對方進行基本的協作。
             </template>
           </resumeSectionSubContent>
           <resumeSectionSubContent>
@@ -128,7 +128,7 @@
               Node.js
             </template>
             <template v-slot:contentText>
-              使用 Express.js, Vue,js, MongoDB 實作出基本的 CRUD 應用 (APP)。
+              使用 Express.js, Vue.js, MongoDB 實作出基本的 CRUD 應用 (APP)。
             </template>
           </resumeSectionSubContent>
         </template>

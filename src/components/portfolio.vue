@@ -176,7 +176,7 @@ export default {
             "purple_3.jpg",
             "purple_4.jpg",
           ],
-          link: "https://www.example.org/",
+          link: "./",
         },
         {
           projectId: "thirtyXThirtyLifetimeTable",
