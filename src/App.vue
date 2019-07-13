@@ -25,6 +25,11 @@ export default {
   html {
     height: 100%;
     // .For sticky footer.
+    overflow-x: hidden;
+    // .To fix "overflow not working on body on mobile" issue, see:
+    // https://stackoverflow.com/questions/41506456/why-body-overflow-not-working
+    // https://www.douban.com/note/561975262/
+    // .Also see comment id 190713m090952.
   }
   body {
     //font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -37,6 +42,7 @@ export default {
     height: 100%;
     // .For sticky footer.
     overflow-x: hidden;
+    // .Also see comment id 190713m090952.
     max-width: 1500px;
   }
 </style>
