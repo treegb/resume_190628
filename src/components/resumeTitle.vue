@@ -7,12 +7,14 @@
       <div class="clippingCtnr">
         <div class="dwLink">
           <div class="transform">
-            <a :href="`${publicPath}resume_pdf.pdf`" class="defaultText">下載 PDF 版本</a>
+            <a :href="`${publicPath}resume_pdf.pdf`" class="defaultText" download>下載 PDF 版本</a>
             <!--
             .See "How to create a button that can download a (.pdf or .word) file with vue (webpack template)":
             https://forum.vuejs.org/t/how-to-create-a-button-that-can-download-a-pdf-or-word-file-with-vue-webpack-template/43538
             And "HTML and Static Assets:
             https://cli.vuejs.org/guide/html-and-static-assets.html#static-assets-handling
+            .See Solution of problem "Resource interpreted as Document but transferred with MIME type application":
+            http://slashlook.com/archive2018/20181025.html
           -->
           </div>
         </div>
