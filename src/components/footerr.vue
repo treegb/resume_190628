@@ -5,6 +5,7 @@
         <ul class="contact">
           <li>信箱 : bambooindark@gmail.com</li>
           <li>手機 : 0905-714-604</li>
+          <li>Github : <a href="https://github.com/treegb">https://github.com/treegb</a></li>
         </ul>
       <footerTriangle class="footerTriangleBig"></footerTriangle>
       <footerTriangle class="footerTriangleSmall"></footerTriangle>
@@ -106,6 +107,13 @@ export default {
   .footerContent .contact li {
     font-size: 0.9em;
     color: #CCC;
+  }
+  .footerContent .contact a {
+    color: scale-color(
+      $clorPrimary,
+      $saturation: -20%,
+      $lightness: 20%,
+    );
   }
   .footerTriangleText {
     // ."陳叙廷".

@@ -122,6 +122,7 @@ export default {
             "check-your-score_2.jpg",
             "check-your-score_3.jpg",
             "help.jpg",
+            "wireframe.jpg",
           ],
           link: "https://treegb.github.io/doggo/",
         },
