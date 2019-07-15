@@ -87,7 +87,7 @@ export default {
     background-color: #4b4b4b;
     padding-top: $spaceS3;
     padding-bottom: $spaceS3;
-    
+
     & ul {
       list-style: none;
       display: grid;

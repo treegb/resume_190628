@@ -23,13 +23,12 @@ export default {
 
 <style lang="scss">
   html {
-    height: 100%;
-    // .For sticky footer.
     overflow-x: hidden;
     // .To fix "overflow not working on body on mobile" issue, see:
     // https://stackoverflow.com/questions/41506456/why-body-overflow-not-working
     // https://www.douban.com/note/561975262/
     // .Also see comment id 190713m090952.
+        //border: 3px solid blue;
   }
   body {
     //font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -39,11 +38,10 @@ export default {
     // .To make body center aligned, since { max-width: 1500px } is set.
     padding: 0;
     font-family: 'Noto Sans TC', sans-serif;
-    height: 100%;
-    // .For sticky footer.
     overflow-x: hidden;
     // .Also see comment id 190713m090952.
     max-width: 1500px;
+        //border: 3px solid yellow
   }
 </style>
 
@@ -53,10 +51,11 @@ export default {
   #app {
     display: grid;
     grid-template-rows: auto auto 1fr;
-    min-height: 100%;
+    min-height: 100vh;
+    // .For sticky footer.
   }
   header {
-    z-index: 4;
+    z-index: 5;
     // .Makes it don't be overlapped by footer, and other things.
     // Set to "2" will works property, but I still want to make it higher.
   }
