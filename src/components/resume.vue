@@ -37,7 +37,7 @@
               <circuitBoard></circuitBoard>
             </template>
             <template v-slot:contentTitle>
-              2018 ~ 2019 東元電機家電事業部觀音場
+              2018 ~ 2019 東元電機家電事業部觀音廠
             </template>
             <template v-slot:contentText>
               生產線上的作業員。
