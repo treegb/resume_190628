@@ -140,7 +140,7 @@ export default {
             {
               skillId: "svg",
               skillName: "SVG",
-              content: "所有 svg 圖片都是一個 Vue component，這樣在代碼的管理上，以及顏色，大小，定位這些參數上，能夠一致的管理。"
+              content: "每一張 svg 圖片都是一個 Vue component，這樣在代碼的管理上，以及顏色，大小，定位這些參數上，能夠一致的管理。"
             },
             {
               skillId: "sass",

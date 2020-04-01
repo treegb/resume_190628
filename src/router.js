@@ -4,6 +4,9 @@ import resume from './components/resume.vue';
 import portfolio from './components/portfolio.vue';
 import aboutMe from './components/aboutMe.vue';
 import a404 from './components/a404.vue';
+import TestingSvg from './components/TestingSvg.vue';
+
+
 let githubRepoName = "resume_190628";
 // .If deployed repository name changed, this have to change too.
 
@@ -36,6 +39,11 @@ let routes = [
     path: `/${githubRepoName}/aboutMe`,
     component: aboutMe,
     name: "aboutMe",
+  },
+  {
+    path: `/${githubRepoName}/testing-svg`,
+    component: TestingSvg,
+    name: "TestingSvg",
   },
   {
     path: "/*",
